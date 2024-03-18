@@ -1,1 +1,1 @@
-[text](https://stepik.org/course/68343)
+[Ссылка на курс](https://stepik.org/course/68343)
