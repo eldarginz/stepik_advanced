@@ -1,6 +1,1 @@
-n = int(input())
-
-x = [int(i+1) for i in range(n)]
-
-for i in range(n):
-    print(x)
+print(*[[x+1 for x in range(x+1)] for x in range(int(input()))], sep='\n')
