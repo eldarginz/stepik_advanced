@@ -1,23 +1,39 @@
-def fill_blank_matrix(n, m):  # Создание и заполнение матрицы нулями
-    return [[0]*m for i in range(n)]
+n, m = [int(i) for i in input().split()]
 
-
-x, y = (input().split())
-matrix = fill_blank_matrix(int(x), int(y))
+matrix = [[0]*m for _ in range(n)]
 counter = 1
+rows_passed, columns_passed = 0, 0
+current_row, current_column = 0, 0
+
+for k in range(n*m):
+    if counter == n*m + 1:
+        break
+    direction = k % 4
+    if direction == 0:
+        for j in range(columns_passed, m - columns_passed):
+            matrix[current_row][j] = counter
+            counter += 1
+        current_column = j
+        rows_passed += 1
+    elif direction == 1:
+        for i in range(rows_passed, n - rows_passed + 1):
+            matrix[i][current_column] = counter
+            counter += 1
+        current_row = i
+        columns_passed += 1
+    elif direction == 2:
+        for j in range(current_column - 1, columns_passed - 2, -1):
+            matrix[current_row][j] = counter
+            counter += 1
+        current_column = j
+    elif direction == 3:
+        for i in range(current_row - 1, rows_passed - 1, -1):
+            matrix[i][current_column] = counter
+            counter += 1
+        current_row = i
 
 
-for i in range(int(y)):
-    matrix[0][i] = counter
-    counter += 1
-
-for j in range(int(x)):
-    matrix[j][int(y)-1] = counter
-    counter += 1
-
-
-
-for i in range(int(x)):
-    for j in range(int(y)):
+for i in range(n):
+    for j in range(m):
         print(str(matrix[i][j]).ljust(2), end=' ')
     print()
