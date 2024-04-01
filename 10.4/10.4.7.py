@@ -1,20 +1,17 @@
-crypted = input().split
-crypted_dict = {}
-buffer = {}
-
-for word in crypted:
-    crypted_dict[word] = crypted_dict.get(word, 0) + 1
-
+text_input = input()
+text_dict = {}
 key = {}
+d3 = {}
+
+for word in text_input:
+    text_dict[word] = text_dict.get(word, 0) + 1
 
 for i in range(int(input())):
-    letter, count = input().split(': ')
-    key[int(count)] = letter
+    a, b = input().split(': ')
+    key[int(b)] = a
 
-print(key)
-print(crypted_dict)
+for z in text_dict:
+    d3[z] = key[text_dict[z]]
 
-for word in crypted_dict:
-    buffer[crypted_dict[word]] = word
-
-print(buffer)
+for _ in text_input:
+    print(d3[_], end='')
