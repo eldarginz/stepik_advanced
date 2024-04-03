@@ -1,4 +1,5 @@
-a, b, c = 10, 20, 30
-c, b, a = a + b, b*2, a + b + c
+def fancy(length, char1='-', char2='*'):
+    return (char1 + char2) * length + char1
 
-print(a, b, c)
+
+print(fancy(char2='!'))
