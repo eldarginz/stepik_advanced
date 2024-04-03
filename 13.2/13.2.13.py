@@ -1,9 +1,13 @@
 from fractions import Fraction
+from math import gcd
 
-a = input()
-b = input()
+sp = []
+n = int(input())
 
-print(f'{a} + {b} = {(Fraction(a)+Fraction(b))}')
-print(f'{a} - {b} = {(Fraction(a)-Fraction(b))}')
-print(f'{a} * {b} = {(Fraction(a)*Fraction(b))}')
-print(f'{a} / {b} = {(Fraction(a)/Fraction(b))}')
+for i in range(1, n):
+    for j in range(0, n):
+        if Fraction(i, n-j) < 1 and Fraction(i, n-j) not in sp:
+            sp.append(Fraction(i, n-j))
+
+for i in sorted(sp):
+    print(i)
