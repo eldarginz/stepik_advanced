@@ -1,4 +1,4 @@
-func = lambda x: x[-1].islower() and x[-1] == 'a'
+func = lambda x: x[0].lower() == 'a' and x[-1].lower() == 'a'
 
 print(func('abcd'))
 print(func('bcda'))
